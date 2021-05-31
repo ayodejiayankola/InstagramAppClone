@@ -110,7 +110,7 @@ class FeedCell: UICollectionViewCell {
         
         addSubview(captionLabel)
         captionLabel.anchor(top: likeLabel.bottomAnchor, left: leftAnchor, paddingTop: 8,  paddingLeft: 8)
-//
+
         addSubview(postTimeLabel)
         postTimeLabel.anchor(top: captionLabel.bottomAnchor, left: leftAnchor, paddingTop: 8,  paddingLeft: 8)
 
