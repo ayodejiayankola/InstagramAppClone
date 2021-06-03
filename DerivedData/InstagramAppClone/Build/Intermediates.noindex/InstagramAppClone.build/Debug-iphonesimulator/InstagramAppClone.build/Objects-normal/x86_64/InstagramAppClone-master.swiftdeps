@@ -1,0 +1,17 @@
+version: "Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
+options: "d6c4ee6bbb5c5b9d7b2bb5b8f255d284"
+build_time: [1622714324, 645356000]
+inputs:
+  "/Users/ayodejiayankola/Desktop/Projects/InstagramAppClone/InstagramAppClone/ViewController.swift": [1620898619, 741658053]
+  "/Users/ayodejiayankola/Desktop/Projects/InstagramAppClone/InstagramAppClone/Controllers/Authentication/LoginController.swift": [1622714324, 543532699]
+  "/Users/ayodejiayankola/Desktop/Projects/InstagramAppClone/InstagramAppClone/Views/FeedCell.swift": [1621950667, 94207756]
+  "/Users/ayodejiayankola/Desktop/Projects/InstagramAppClone/InstagramAppClone/Controllers/ImageSelectorController.swift": [1620986068, 12508455]
+  "/Users/ayodejiayankola/Desktop/Projects/InstagramAppClone/InstagramAppClone/Controllers/NotificationController.swift": [1621249518, 937150189]
+  "/Users/ayodejiayankola/Desktop/Projects/InstagramAppClone/InstagramAppClone/Controllers/SearchController.swift": [1620986068, 69987210]
+  "/Users/ayodejiayankola/Desktop/Projects/InstagramAppClone/InstagramAppClone/AppDelegate.swift": [1620898619, 726154796]
+  "/Users/ayodejiayankola/Desktop/Projects/InstagramAppClone/InstagramAppClone/Controllers/ProfileController.swift": [1620986068, 79990695]
+  "/Users/ayodejiayankola/Desktop/Projects/InstagramAppClone/InstagramAppClone/Controllers/FeedController.swift": [1621941294, 43704124]
+  "/Users/ayodejiayankola/Desktop/Projects/InstagramAppClone/InstagramAppClone/Controllers/MainTabBarController.swift": [1622459660, 697624052]
+  "/Users/ayodejiayankola/Desktop/Projects/InstagramAppClone/InstagramAppClone/Services/Extensions.swift": [1621867434, 510579025]
+  "/Users/ayodejiayankola/Desktop/Projects/InstagramAppClone/InstagramAppClone/SceneDelegate.swift": [1622641230, 399895283]
+  "/Users/ayodejiayankola/Desktop/Projects/InstagramAppClone/InstagramAppClone/Controllers/Authentication/RegistrationController.swift": [1622641059, 232213242]

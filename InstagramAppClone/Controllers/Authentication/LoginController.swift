@@ -46,6 +46,45 @@ class LoginController: UIViewController {
         return textField
         
     }()
+    
+    
+    private let loginButton: UIButton = {
+        var loginButton = UIButton(type: .system)
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.setTitle("Log In", for: .normal)
+        loginButton.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+        loginButton.layer.cornerRadius = 5
+        loginButton.setHeight(50)
+        loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        loginButton.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
+
+        return loginButton
+    }()
+    
+    private let ForgotPasswordSigninButton: UIButton = {
+        let button = UIButton(type: .system)
+        let attribute: [NSAttributedString.Key:Any] = [.foregroundColor:UIColor(white: 1, alpha: 0.7), .font:UIFont.systemFont(ofSize: 16)]
+        let attributedTitle = NSMutableAttributedString(string: "Forgot your password? ", attributes: attribute)
+        let boldAttribute: [NSAttributedString.Key:Any] = [.foregroundColor:UIColor(white: 1, alpha: 0.7), .font:UIFont.boldSystemFont(ofSize: 16)]
+        attributedTitle.append(NSAttributedString(string: "Get help signing in", attributes: boldAttribute))
+        
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        return button
+    }()
+    
+    
+    
+    
+    private let dontHaveAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+        let attribute: [NSAttributedString.Key:Any] = [.foregroundColor:UIColor(white: 1, alpha: 0.7), .font:UIFont.systemFont(ofSize: 16)]
+        let attributedTitle = NSMutableAttributedString(string: "Don't have an account? ", attributes: attribute)
+        let boldAttribute: [NSAttributedString.Key:Any] = [.foregroundColor:UIColor(white: 1, alpha: 0.7), .font:UIFont.boldSystemFont(ofSize: 16)]
+        attributedTitle.append(NSAttributedString(string: "Sign up", attributes: boldAttribute))
+        
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        return button
+    }()
     //MARK:- LifeCycle
     
     override func viewDidLoad() {
@@ -72,14 +111,25 @@ class LoginController: UIViewController {
         logoImageView.setDimensions(height: 80, width: 120)
         logoImageView.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
         
-        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField])
+        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton, ForgotPasswordSigninButton])
         stack.axis = .vertical
         stack.spacing = 20
         view.addSubview(stack)
         stack.anchor(top: logoImageView.bottomAnchor, left: view.leftAnchor,
                      right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
         
+        view.addSubview(dontHaveAccountButton)
+        dontHaveAccountButton.centerX(inView: view)
+        dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, paddingBottom: 10)
         
+       
+  
+    }
+    
+    //MARK:- Action
+    
+    @objc func didTapLogin(){
+        print("This is login")
     }
 }
 
