@@ -28,7 +28,6 @@ class LoginController: UIViewController {
         textField.backgroundColor = UIColor(white: 1, alpha: 0.1)
         textField.setHeight(50)
         textField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [.foregroundColor:UIColor(white: 1, alpha: 0.7)] )
-        
         return textField
         
     }()
@@ -57,7 +56,6 @@ class LoginController: UIViewController {
         loginButton.setHeight(50)
         loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         loginButton.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
-
         return loginButton
     }()
     
@@ -72,16 +70,12 @@ class LoginController: UIViewController {
         return button
     }()
     
-    
-    
-    
     private let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         let attribute: [NSAttributedString.Key:Any] = [.foregroundColor:UIColor(white: 1, alpha: 0.7), .font:UIFont.systemFont(ofSize: 16)]
         let attributedTitle = NSMutableAttributedString(string: "Don't have an account? ", attributes: attribute)
         let boldAttribute: [NSAttributedString.Key:Any] = [.foregroundColor:UIColor(white: 1, alpha: 0.7), .font:UIFont.boldSystemFont(ofSize: 16)]
         attributedTitle.append(NSAttributedString(string: "Sign up", attributes: boldAttribute))
-        
         button.setAttributedTitle(attributedTitle, for: .normal)
         return button
     }()
@@ -95,35 +89,26 @@ class LoginController: UIViewController {
     //MARK:- Helpers
     
     func configureUI(){
-        
-//        view.backgroundColor = .systemPink
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
-        
         let gradient = CAGradientLayer()
         gradient.colors = [UIColor.systemPink.cgColor , UIColor.systemBlue.cgColor]
         gradient.locations = [0, 1]
         view.layer.addSublayer(gradient)
         gradient.frame = view.frame
-        
         view.addSubview(logoImageView)
         logoImageView.centerX(inView: view )
         logoImageView.setDimensions(height: 80, width: 120)
         logoImageView.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
-        
         let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton, ForgotPasswordSigninButton])
         stack.axis = .vertical
         stack.spacing = 20
         view.addSubview(stack)
         stack.anchor(top: logoImageView.bottomAnchor, left: view.leftAnchor,
                      right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
-        
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.centerX(inView: view)
         dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, paddingBottom: 10)
-        
-       
-  
     }
     
     //MARK:- Action
