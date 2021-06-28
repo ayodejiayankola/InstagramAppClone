@@ -11,11 +11,11 @@ class RegistrationController: UIViewController {
     
     //MARK:- Properties
     
-    private let logoImageView:UIImageView = {
-        let iv = UIImageView()
-        iv.contentMode = .scaleAspectFill
-        iv.image = #imageLiteral(resourceName: "plus_photo")
-        return iv
+    private let logoButtonView:UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "plus_photo"), for: .normal)
+        button.tintColor = .white
+        return button
     }()
     
     private let emailTextField: UITextField = {
@@ -32,18 +32,9 @@ class RegistrationController: UIViewController {
         
     }()
     
-    private let fullNameTextField: UITextField = {
-        var textField = CustomTextField(placeholder: "Full Name")
-        textField.isSecureTextEntry = true
-        return textField
-        
-    }()
-    private let userNameTextField: UITextField = {
-        var textField = CustomTextField(placeholder: "Username")
-        textField.isSecureTextEntry = true
-        return textField
-        
-    }()
+    private let fullNameTextField: UITextField = CustomTextField(placeholder: "Full Name")
+    
+    private let usernameTextField: UITextField =  CustomTextField(placeholder: "Username")
     
     private let registerButton: UIButton = {
         var registerButton = UIButton(type: .system)
@@ -75,20 +66,16 @@ class RegistrationController: UIViewController {
     func configureUI(){
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemPink.cgColor , UIColor.systemBlue.cgColor]
-        gradient.locations = [0, 1]
-        view.layer.addSublayer(gradient)
-        gradient.frame = view.frame
-        view.addSubview(logoImageView)
-        logoImageView.centerX(inView: view )
-        logoImageView.setDimensions(height: 80, width: 120)
-        logoImageView.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
-        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, fullNameTextField, userNameTextField , haveAccountButton])
+        configureGradientLayer()
+        view.addSubview(logoButtonView)
+        logoButtonView.centerX(inView: view )
+        logoButtonView.setDimensions(height:140, width: 140)
+        logoButtonView.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
+        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, fullNameTextField, usernameTextField , haveAccountButton])
         stack.axis = .vertical
         stack.spacing = 20
         view.addSubview(stack)
-        stack.anchor(top: logoImageView.bottomAnchor, left: view.leftAnchor,
+        stack.anchor(top: logoButtonView.bottomAnchor, left: view.leftAnchor,
                      right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
         view.addSubview(haveAccountButton)
         haveAccountButton.centerX(inView: view)
@@ -98,7 +85,7 @@ class RegistrationController: UIViewController {
     //MARK:- Action
     
     @objc func didTapLogin(){
-        self.navigationController?.pushViewController(LoginController(), animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func didTapRegister(){

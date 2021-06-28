@@ -11,6 +11,8 @@
 		3524367F265BF06800E2029B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524367E265BF06800E2029B /* Extensions.swift */; };
 		3534F10A2667C01600B488B6 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3534F1092667C01600B488B6 /* LoginController.swift */; };
 		3534F10D2667C02B00B488B6 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3534F10C2667C02B00B488B6 /* RegistrationController.swift */; };
+		35B76A59267141E800DC0A87 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B76A58267141E800DC0A87 /* CustomTextField.swift */; };
+		35C066A12684AF5200F5C47D /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C066A02684AF5200F5C47D /* AuthenticationViewModel.swift */; };
 		35E4FC3D264D2ABB00AC5ED8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E4FC3C264D2ABB00AC5ED8 /* AppDelegate.swift */; };
 		35E4FC3F264D2ABB00AC5ED8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E4FC3E264D2ABB00AC5ED8 /* SceneDelegate.swift */; };
 		35E4FC41264D2ABB00AC5ED8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E4FC40264D2ABB00AC5ED8 /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 		3524367E265BF06800E2029B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3534F1092667C01600B488B6 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		3534F10C2667C02B00B488B6 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		35B76A58267141E800DC0A87 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		35C066A02684AF5200F5C47D /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		35E4FC39264D2ABB00AC5ED8 /* InstagramAppClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramAppClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E4FC3C264D2ABB00AC5ED8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E4FC3E264D2ABB00AC5ED8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,28 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		356FA24E2673602D000A64AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		356FA25026736049000A64AF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		35C0669F2684AF2F00F5C47D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				35C066A02684AF5200F5C47D /* AuthenticationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		35E4FC30264D2ABB00AC5ED8 = {
 			isa = PBXGroup;
 			children = (
@@ -85,12 +111,12 @@
 		35E4FC3B264D2ABB00AC5ED8 /* InstagramAppClone */ = {
 			isa = PBXGroup;
 			children = (
-				35E4FC51264D2B3500AC5ED8 /* Models */,
 				35E4FC52264D2BAD00AC5ED8 /* Views */,
 				35E4FC53264D2BB000AC5ED8 /* Controllers */,
-				35E4FC54264D2BB400AC5ED8 /* ViewModels */,
+				35C0669F2684AF2F00F5C47D /* ViewModel */,
+				356FA24E2673602D000A64AF /* Models */,
+				356FA25026736049000A64AF /* Resources */,
 				35E4FC55264D2BB700AC5ED8 /* Services */,
-				35E4FC56264D2BBA00AC5ED8 /* Resources */,
 				35E4FC3C264D2ABB00AC5ED8 /* AppDelegate.swift */,
 				35E4FC3E264D2ABB00AC5ED8 /* SceneDelegate.swift */,
 				35E4FC40264D2ABB00AC5ED8 /* ViewController.swift */,
@@ -102,17 +128,11 @@
 			path = InstagramAppClone;
 			sourceTree = "<group>";
 		};
-		35E4FC51264D2B3500AC5ED8 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		35E4FC52264D2BAD00AC5ED8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				3524363E265BE71400E2029B /* FeedCell.swift */,
+				35B76A58267141E800DC0A87 /* CustomTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -131,26 +151,12 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		35E4FC54264D2BB400AC5ED8 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		35E4FC55264D2BB700AC5ED8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				3524367E265BF06800E2029B /* Extensions.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		35E4FC56264D2BBA00AC5ED8 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,11 +229,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35B76A59267141E800DC0A87 /* CustomTextField.swift in Sources */,
 				35E4FC41264D2ABB00AC5ED8 /* ViewController.swift in Sources */,
 				3534F10A2667C01600B488B6 /* LoginController.swift in Sources */,
 				3524363F265BE71400E2029B /* FeedCell.swift in Sources */,
 				35E4FC63264E7DBC00AC5ED8 /* ImageSelectorController.swift in Sources */,
 				35E4FC66264E7DD100AC5ED8 /* NotificationController.swift in Sources */,
+				35C066A12684AF5200F5C47D /* AuthenticationViewModel.swift in Sources */,
 				35E4FC60264E7CD300AC5ED8 /* SearchController.swift in Sources */,
 				35E4FC3D264D2ABB00AC5ED8 /* AppDelegate.swift in Sources */,
 				35E4FC69264E7F6600AC5ED8 /* ProfileController.swift in Sources */,

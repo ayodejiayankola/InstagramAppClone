@@ -12,6 +12,8 @@ class LoginController: UIViewController {
     
     //MARK:- Properties
     
+    private var viewModel = LoginViewModel()
+    
     private let logoImageView:UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
@@ -38,11 +40,12 @@ class LoginController: UIViewController {
         var loginButton = UIButton(type: .system)
         loginButton.setTitleColor(.white, for: .normal)
         loginButton.setTitle("Log In", for: .normal)
-        loginButton.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+        loginButton.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1).withAlphaComponent(0.5)
         loginButton.layer.cornerRadius = 5
         loginButton.setHeight(50)
         loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         loginButton.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
+        loginButton.isEnabled = false
         return loginButton
     }()
     
@@ -63,6 +66,7 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureNotificationObservers()
     }
     
     //MARK:- Helpers
@@ -70,11 +74,7 @@ class LoginController: UIViewController {
     func configureUI(){
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemPink.cgColor , UIColor.systemBlue.cgColor]
-        gradient.locations = [0, 1]
-        view.layer.addSublayer(gradient)
-        gradient.frame = view.frame
+        configureGradientLayer()
         view.addSubview(logoImageView)
         logoImageView.centerX(inView: view )
         logoImageView.setDimensions(height: 80, width: 120)
@@ -95,9 +95,30 @@ class LoginController: UIViewController {
     @objc func didTapLogin(){
         print("This is login")
     }
+    @objc func textDidChange(sender: UITextField){
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else {
+            viewModel.password = sender.text
+        }
+        loginButton.backgroundColor = viewModel.buttonBackgroundColor
+        loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        loginButton.isEnabled = viewModel.formIsValid
+        print("DEBUG: View model email is \(viewModel.email)")
+        print("DEBUG: View model password is \(viewModel.password)")
+        
+        print("DEBUG: View model now is \(viewModel.formIsValid)")
+    }
+    
     
     @objc func didTapRegister(){
-        self.navigationController?.pushViewController(RegistrationController(), animated: true)
+        let controller = RegistrationController()
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func configureNotificationObservers() {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
 }
 
